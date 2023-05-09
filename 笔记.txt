@@ -1,0 +1,69 @@
+Git config --global   user.name  “”
+git config -- global user.email   8751217397@qq.com
+
+git config  --list
+
+
+
+#初始化本地出库
+
+git  init
+
+
+#添加东西
+
+git add   命令添加文件到暂存区
+
+
+
+git commit   #暂存区 到本地仓库
+
+
+git  log  #查看提交日志
+
+
+git status  #查看 暂存区
+
+
+git diff HEAD  --文件名
+
+
+差异比较说明
+---~:表示变动前的文件
+4++”:表示变动后的文件
+变动的位置用两个@作为起首和结束
+@@ -1,2 +1,3 @@:减号表示第一个文件，"1"表示第1行，"2"表示连续2行。同样的，"+1,3"表示变动后，成为第二个文件
+从第1行开始的连续3行。
+
+
+git reset HEAD     文件名 （移除一个） /  git   restor --staged  文件名  （移除多个）               #暂存区移除
+
+ 
+#版本回退
+git  log --pertty=oneline  #查日志
+git  reset  --hard HEAD^^(一个^符号回退一次)
+git  reset  --hard HEAD~1（回退就写数字）
+git  reset  -- hard   xxxxxxxx  代号的前八位 （唯一标识就行）
+
+git reflog #查看所有日志
+
+
+git ls-files  #查看本地文件目录
+git checkout  git checkout  文件名   # 恢复文件
+
+#删除操作
+1、本地删除 然后提交 
+2、git rm 文件名
+
+
+github  
+
+875217397@qq.com
+Qq1594184.
+
+
+
+git clone  路径地址  #本地下载GitHub项目
+
+
+

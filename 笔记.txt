@@ -19,7 +19,7 @@ git add   命令添加文件到暂存区
 git commit   #暂存区 到本地仓库
 
 
-git  log  #查看提交日志
+git  log  --pretty=oneline #查看提交日志
 
 
 git status  #查看 暂存区
@@ -53,7 +53,7 @@ git checkout  git checkout  文件名   # 恢复文件
 
 #删除操作
 1、本地删除 然后提交 
-2、git rm 文件名
+2、git rm xxx文件名
 
 
 github  
@@ -82,3 +82,11 @@ git push origin :remote branch  删除远程分支(本地分支还在保留)
 git checkout -b local branch origin/remote branch   拉取远程指定分支并在本地创建分支
 描述
 
+
+
+git init
+git add README .md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github ,com:zsyue/gite1.git
+git push -u origin master

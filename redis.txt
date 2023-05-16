@@ -11,3 +11,79 @@ vim redis.config  找到 #########CENERAL#########  下的 daemonize  no 改为 
 
 5. 查看redis进程
 ps -ef|grep redis  
+
+./redis-cli  连通机制
+输入：ping 回复pong 说明启动redis成功
+ctrl+c  退出
+
+
+可视化软件 Redis Desktop Manager 
+
+设置远程连接模式
+1、先关闭redis
+kill -9 8815  关闭进程
+打开配置
+设置密码
+搜索requlrrepass   小写n 下一个 大写N 上一个
+requirepass  foobared 改为 root
+：set  nu  #显示编号
+设置数据库
+搜索 database 16
+bind 127.0.0.1  追加IP地址 ，注释 所有都可以访问
+protec ted-mode  no  #保护模式 关闭
+重新启动redis
+
+关闭防火墙
+systemctl stop firewalld  关闭防火墙
+systemctl disable firewalld   禁用防火墙
+
+Redis-cli 操作 redis
+连接redis
+./redis-cli -h 192.168.10.100（不写默认为本机） - p 6379 (端口)-a root （密码0
+
+selct 1 选择数据库
+set name xx 输入 get name  获取
+批量输入： mset age 20 addr shanghai 
+取值： mget age addr 
+输入哈希
+hset user name chuangwang
+hget user name
+批量输入 hmset age 20 addr shanghai 
+取值：hmget age addr
+hgetall  user #全部获取
+
+删除 hdel user sge addr
+
+
+list 集合
+lpush students longwang  chuangwang haoge 左添加
+rpush students guasong cichui 右添加
+lrange students 0-4  显示 
+llen students 查条数
+llem students 1 haoyong 删除一个haoyong
+
+set 
+sadd letters aa bb  cc dd aaa  添加
+smembers letters 查询
+scard  查询个数
+srem letters  aaa  cc 删除
+
+zadd cdd  10 zhangsan 9 lisi 1 zhaoliu  #有序set
+zcard users 查询条数
+zrange   users 0 5
+zrange users zhangsan  删除zhangsan
+
+del  name user #通用删除
+
+keys #所有的key 值
+ 
+set code test px 30000  #设值并30S失效
+ttl code 查询失效剩余时间
+
+expire code 20 #单独设置code 失效20S
+pttl code  #剩余毫秒
+
+pexpire code xx  #设置毫秒
+
+set code test nx  #必须数据库没有
+set codr test xx   #必须数据库存在
